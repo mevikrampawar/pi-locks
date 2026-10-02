@@ -10,10 +10,19 @@
 
   --c-black: #000000;
   --c-white: #ffffff;
-  --c-grey: #868686;
-  --c-line: #707070;
-  --c-line-soft: rgba(255, 255, 255, 0.2);
-  --c-hairline: rgba(0, 0, 0, 0.12);
+  --c-ink: #0d0d0d;
+
+  /*
+    One grey cannot serve both backgrounds. --c-grey is tuned for light
+    surfaces (5.1:1 on white) and --c-grey-dim for dark ones (8.3:1 on
+    near-black). The previous single #868686 failed WCAG AA at 3.64:1.
+  */
+  --c-grey: #6e6e6e;
+  --c-grey-dim: #a8a8a8;
+  --c-line: #5a5a5a;
+  --c-line-soft: rgba(255, 255, 255, 0.28);
+  --c-hairline: rgba(0, 0, 0, 0.14);
+  --c-hairline-dark: rgba(255, 255, 255, 0.24);
 
   /* PI Locks brand — brass + ink */
   --brass: #c9a227;
@@ -26,6 +35,29 @@
   --maxw: 1920px;
 
   --header-h: 80px;
+
+  /*
+    Spacing scale. Every vertical gap in the site resolves to one of these,
+    which is what makes the rhythm read as even rather than arbitrary.
+  */
+  --sp-1: 8px;
+  --sp-2: 12px;
+  --sp-3: 16px;
+  --sp-4: 24px;
+  --sp-5: 32px;
+  --sp-6: 48px;
+  --sp-7: 64px;
+  --sp-8: 80px;
+  --sp-9: 100px;
+  --sp-10: 120px;
+
+  /* uniform vertical rhythm between major sections */
+  --rhythm: 72px;
+  /* uniform gap between a section heading and the content beneath it */
+  --lead: var(--sp-6);
+
+  /* minimum comfortable touch target */
+  --tap: 44px;
 }
 
 @media (min-width: 568px) {
@@ -37,6 +69,8 @@
   :root {
     --gutter: 40px;
     --header-h: 175px;
+    --rhythm: 96px;
+    --lead: var(--sp-7);
   }
 }
 @media (min-width: 900px) {
@@ -47,6 +81,7 @@
 @media (min-width: 1024px) {
   :root {
     --gutter: 75px;
+    --rhythm: 120px;
   }
 }
 @media (min-width: 1200px) {
@@ -57,6 +92,7 @@
 @media (min-width: 1440px) {
   :root {
     --gutter: 100px;
+    --rhythm: 160px;
   }
 }
 @media (min-width: 1600px) {
@@ -72,6 +108,7 @@
 }
 
 html {
+  font-family: var(--font-primary);
   font-size: 10px;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
@@ -155,7 +192,7 @@ textarea {
 
 /* ---------- eyebrow ---------- */
 .eyebrow {
-  margin: 0 0 5rem;
+  margin: 0 0 var(--lead);
   color: var(--c-grey);
   font-size: 1.6rem;
   font-weight: 400;
@@ -286,11 +323,13 @@ textarea {
 .btn {
   display: inline-flex;
   align-items: center;
+  min-height: var(--tap);
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 1;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  padding: 8px 12px;
+  padding: 0 24px;
   border-radius: 36px;
   border: 1px solid transparent;
   transition: color 200ms ease, background-color 200ms ease,
@@ -298,8 +337,14 @@ textarea {
 }
 @media (min-width: 768px) {
   .btn {
+    font-size: 1.5rem;
+    padding: 0 28px;
+  }
+}
+@media (min-width: 1200px) {
+  .btn {
     font-size: 1.6rem;
-    padding: 10px 16px;
+    padding: 0 32px;
   }
 }
 
@@ -341,9 +386,10 @@ textarea {
 
 .btn__arrow {
   position: relative;
-  margin: 0 0 0 10px;
+  margin: 0 0 0 12px;
   width: 30px;
   height: 1px;
+  flex: 0 0 auto;
   transition: width 220ms ease;
 }
 .btn:hover .btn__arrow {
@@ -390,6 +436,13 @@ textarea {
   width: 18px;
   height: 18px;
   transition: transform 200ms ease;
+}
+.rnd:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.rnd:disabled:hover svg {
+  transform: none;
 }
 .rnd--prev:hover svg {
   transform: translateX(-3px);

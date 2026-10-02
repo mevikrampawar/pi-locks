@@ -1,26 +1,10 @@
 import Link from "next/link";
 import Button from "@/components/button";
 import Carousel from "@/components/carousel";
+import ContactDetails from "@/components/contact-details";
 import HeroMark from "@/components/hero-mark";
-
-const IMG = {
-  /* services */
-  rack: "photo-1558494949-ef010cbdcc31",
-  board: "photo-1551434678-e076c223a692",
-  cctv: "photo-1557597774-9d273605dfa9",
-  keys: "photo-1521791136064-7986c2920216",
-  engineer: "photo-1581092160562-40aa08e78837",
-  av: "photo-1598488035139-bdbb2231ce04",
-  /* client types */
-  contractor: "photo-1503387762-592deb58ef4e",
-  designer: "photo-1600585154340-be6161a56a0c",
-  property: "photo-1486406146926-c627a92ad1ab",
-  strata: "photo-1545324418-cc1a3fa10c00",
-  tenant: "photo-1441986300917-64674bd600d8",
-};
-
-const u = (id: string, w = 1600) =>
-  `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
+import { img } from "@/lib/media";
+import { HERO_VIDEO } from "@/lib/media";
 
 /*
   Capability showcase — drawn directly from the client's service breakdown.
@@ -30,32 +14,32 @@ const SLIDES = [
   {
     tag: "Access Control",
     title: "Card & Fob Readers, Cloud Access, Mobile Credentials",
-    img: IMG.rack,
+    img: img.accessRack,
   },
   {
     tag: "Access Control",
     title: "Smart Locks & Intercom Entry Systems",
-    img: IMG.keys,
+    img: img.smartLock,
   },
   {
     tag: "Structured Cabling",
     title: "Cat6 / Cat6A Data Drops & Fibre Backbone",
-    img: IMG.board,
+    img: img.patchPanel,
   },
   {
     tag: "Surveillance",
     title: "IP Cameras, NVR Setups & Cloud / AI Analytics",
-    img: IMG.cctv,
+    img: img.cameras,
   },
   {
     tag: "Other Services",
     title: "Alarm Systems, Commercial AV & Door Hardware",
-    img: IMG.av,
+    img: img.av,
   },
   {
     tag: "Ongoing",
     title: "Low-Voltage Maintenance & MAC Services",
-    img: IMG.engineer,
+    img: img.technician,
   },
 ];
 
@@ -102,31 +86,31 @@ const CLIENTS = [
     tag: "General & Electrical Contractors",
     title: "A Subcontractor Who Finishes the Job",
     body: "Access control, cabling, surveillance and low-voltage scope installed by our own crews, documented and handed over clean — so your GC does not chase loose ends. We work inside your construction schedule and leave the site ready.",
-    img: IMG.contractor,
+    img: img.gc,
   },
   {
     tag: "Architects & Interior Designers",
     title: "Systems That Match the Design Intent",
     body: "Early involvement, clear specification and scope-consultant-grade documentation. We work from your drawings, flag anything that will not work in the space, and hand over as-builts your consultant can rely on.",
-    img: IMG.designer,
+    img: img.designer,
   },
   {
     tag: "Commercial Real Estate & Property Managers",
     title: "One Vendor Across Multiple Buildings",
     body: "Access, CCTV and cabling managed as a single service relationship instead of a patchwork of vendors. Routine service, maintenance and MAC work handled from a single point of contact in Coquitlam.",
-    img: IMG.property,
+    img: img.property,
   },
   {
     tag: "Multi-Family Residential & Strata",
     title: "Entry, Intercom & Common-Area Systems",
     body: "Entry control, intercom, parking and common-area coverage for strata corporations — installed to suit existing building wiring where possible, and documented so the next contractor can pick it up.",
-    img: IMG.strata,
+    img: img.strata,
   },
   {
     tag: "Retail, Industrial & Office TI",
     title: "Low-Voltage Fit-Out, Delivered to Programme",
     body: "Tenant-improvement low voltage delivered around live trading hours and existing building systems — cabling, access, cameras, alarms and AV coordinated as one package on one schedule.",
-    img: IMG.tenant,
+    img: img.tenant,
   },
 ];
 
@@ -149,13 +133,10 @@ export default function Home() {
             loop
             muted
             playsInline
-            poster={u(IMG.property, 2400)}
+            poster={img.heroPoster}
             aria-hidden="true"
           >
-            <source
-              src="https://assets.mixkit.co/videos/preview/mixkit-abstract-blue-particles-network-connection-27948-large.mp4"
-              type="video/mp4"
-            />
+            <source src={HERO_VIDEO.src} type="video/mp4" />
           </video>
         </div>
         <div className="hero__mark">
@@ -193,8 +174,8 @@ export default function Home() {
       <section className="band">
         <div className="media ratio-16x9">
           <img
-            src={u(IMG.property, 2400)}
-            alt="Commercial office building exterior"
+            src={img.band}
+            alt="Completed commercial interior with integrated low-voltage systems"
             loading="lazy"
           />
         </div>
@@ -225,7 +206,7 @@ export default function Home() {
               <article key={s.title} className="slider__item">
                 <Link href="/portfolio" className="block">
                   <div className="media ratio-3x2">
-                    <img src={u(s.img)} alt={s.title} loading="lazy" />
+                    <img src={s.img} alt={s.title} loading="lazy" />
                   </div>
                   <div className="slider__copy">
                     <p className="slider__tag">{s.tag}</p>
@@ -280,7 +261,7 @@ export default function Home() {
               <article key={c.title} className="news__item">
                 <Link href="/contact">
                   <div className="media ratio-4x3">
-                    <img src={u(c.img, 1200)} alt={c.title} loading="lazy" />
+                    <img src={c.img} alt={c.title} loading="lazy" />
                   </div>
                 </Link>
                 <div className="news__meta">
@@ -319,93 +300,30 @@ export default function Home() {
       <section className="detail">
         <div className="container">
           <div className="enquiry">
-            <div>
+            <div className="enquiry__intro">
               <h2 className="h-section reveal">
                 Start Your
                 <br />
                 Project
               </h2>
-              <p
-                className="reveal"
-                style={{
-                  marginTop: 24,
-                  fontSize: "2rem",
-                  fontWeight: 300,
-                  color: "#868686",
-                }}
-              >
-                Have a question or inquiry?
-                <br />
-                Tell us what you are building.
+              <p className="enquiry__lede reveal">
+                Tell us what you are building. One accountable partner from
+                first consultation through commissioning, handover and the
+                service that follows.
               </p>
-            </div>
-
-            <form className="reveal">
-              <div className="field-pair">
-                <label className="field">
-                  <span className="sr-only">First Name</span>
-                  <input type="text" name="firstName" placeholder="First Name" required />
-                </label>
-                <label className="field">
-                  <span className="sr-only">Last Name</span>
-                  <input type="text" name="lastName" placeholder="Last Name" required />
-                </label>
-              </div>
-
-              <div className="field-pair">
-                <label className="field">
-                  <span className="sr-only">Company</span>
-                  <input type="text" name="company" placeholder="Company" />
-                </label>
-                <label className="field">
-                  <span className="sr-only">Email</span>
-                  <input type="email" name="email" placeholder="Email" required />
-                </label>
-              </div>
-
-              <label className="field-wrap">
-                <span className="sr-only">Service</span>
-                <select name="service" defaultValue="" required>
-                  <option value="" disabled>
-                    Service Required
-                  </option>
-                  <option>Access Control &amp; Physical Security</option>
-                  <option>Structured Cabling &amp; Fibre</option>
-                  <option>IP Surveillance / CCTV</option>
-                  <option>Alarm Systems</option>
-                  <option>Commercial AV</option>
-                  <option>Door Hardware &amp; Locks</option>
-                  <option>Low-Voltage Maintenance / MAC</option>
-                </select>
-              </label>
-
-              <label className="field__row" style={{ marginBottom: 16 }}>
-                <input type="checkbox" name="consent" required style={{ display: "none" }} />
-                <span className="field__box" aria-hidden="true" />
-                <span>
-                  We will only use this information to answer your enquiry.
-                </span>
-              </label>
-              <p className="consent">
-                Please tick the box to consent to your data being stored in line
-                with the guidelines in our{" "}
-                <Link href="/privacy-policy" style={{ textDecoration: "underline" }}>
-                  privacy policy
-                </Link>
-                .
-              </p>
-              <label className="field__row" style={{ marginTop: 24 }}>
-                <input type="checkbox" name="agree" required style={{ display: "none" }} />
-                <span className="field__box" aria-hidden="true" />
-                <span>I have read and agree to the privacy policy.</span>
-              </label>
-
-              <div style={{ marginTop: 48 }}>
+              <div className="enquiry__actions reveal">
                 <Button href="/contact" variant="dark">
-                  Continue to Enquiry Form
+                  Discuss Your Project
+                </Button>
+                <Button href="/portfolio" variant="outline">
+                  View Capabilities
                 </Button>
               </div>
-            </form>
+            </div>
+
+            <div className="enquiry__reach reveal">
+              <ContactDetails variant="compact" />
+            </div>
           </div>
         </div>
       </section>

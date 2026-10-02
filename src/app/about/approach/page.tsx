@@ -90,7 +90,7 @@ export default function Approach() {
           <Link href="/about/impact">Impact</Link>
           <Link href="/about/history">History</Link>
         </nav>
-        <div style={{ paddingBottom: 120 }}>
+        <div className="pagefoot">
           <Button href="/contact">Start a Consultation</Button>
         </div>
       </section>

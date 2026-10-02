@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CONTACT } from "@/components/contact-details";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -91,21 +92,18 @@ export default function TermsConditions() {
         <div className="prose">
           <h2 className="prose__label">Contact</h2>
           <div className="prose__body">
-            <p>
-              PI Locks
-              <br />
-              #1 - 1322 Ketch Court
-              <br />
-              Coquitlam, BC V3K 6W1
-              <br />
-              <a href="mailto:info@pilocks.ca" className="link">
-                info@pilocks.ca
+            <address className="contactblock">
+              <span className="contactblock__org">PI Locks</span>
+              {CONTACT.addressLines.map((l) => (
+                <span key={l}>{l}</span>
+              ))}
+              <a href={CONTACT.emailHref} className="link">
+                {CONTACT.email}
               </a>
-              <br />
-              <a href="tel:+17787300914" className="link">
-                778-730-0914
+              <a href={CONTACT.phoneHref} className="link">
+                {CONTACT.phone}
               </a>
-            </p>
+            </address>
           </div>
         </div>
 

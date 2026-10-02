@@ -68,9 +68,7 @@ export default function SiteFooter() {
           <div className="ftr__addr">
             <h4>Pi Locks</h4>
             <p>
-              #1 - 1322 Ketch Court
-              <br />
-              Coquitlam, BC V3K 6W1
+              #1 - 1322 Ketch Court, Coquitlam, BC V3K 6W1
             </p>
           </div>
           <div className="ftr__legal">

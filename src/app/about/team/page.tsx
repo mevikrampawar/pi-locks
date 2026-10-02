@@ -5,27 +5,33 @@ import Button from "@/components/button";
 export const metadata: Metadata = {
   title: "Team",
   description:
-    "The roles behind every PI Locks installation — founder and lead, project lead, and service and support.",
+    "The roles behind every PI Locks installation — leadership, project delivery, and service and support.",
 };
 
+/*
+  Roles, not headshots.
+
+  This page previously used stock photographs with captions naming them as
+  PI Locks roles. Stock imagery presented as named staff is misleading, and it
+  also forced a duplicate photograph onto two routes. Roles are described
+  plainly instead; real portraits and names can be added here when they are
+  cleared to publish.
+*/
 const ROLES = [
   {
     key: "01",
     title: "Founder & Lead",
     body: "Accountable for the standard. Owns client relationships, system architecture decisions and the commitment that nothing ships half-finished.",
-    img: "photo-1581092160562-40aa08e78837",
   },
   {
     key: "02",
     title: "Project Lead",
     body: "Runs delivery on site — scheduling, coordination with other trades, install quality, testing and commissioning sign-off.",
-    img: "photo-1581094794329-c8112a89af12",
   },
   {
     key: "03",
     title: "Service & Support",
     body: "Handles maintenance, MAC service and fault response. Keeps systems documented so support stays fast after handover.",
-    img: "photo-1449824913935-59a10b8d2000",
   },
 ];
 
@@ -44,28 +50,17 @@ export default function Team() {
       </section>
 
       <section className="container">
-        <div className="cardgrid cardgrid--wide">
+        <div className="rolelist">
           {ROLES.map((r) => (
-            <figure key={r.key} className="pcard">
-              <div className="media ratio-4x5">
-                <img
-                  src={`https://images.unsplash.com/${r.img}?q=80&w=900&auto=format&fit=crop`}
-                  alt={r.title}
-                  loading="lazy"
-                />
+            <article key={r.key} className="rolelist__item reveal">
+              <span className="rolelist__key">{r.key}</span>
+              <div>
+                <h2 className="h-title-sm rolelist__title">{r.title}</h2>
+                <p className="rolelist__body">{r.body}</p>
               </div>
-              <div className="pcard__meta">
-                <span>{r.key}</span>
-              </div>
-              <h2 className="pcard__title">{r.title}</h2>
-              <p className="journey__body">{r.body}</p>
-            </figure>
+            </article>
           ))}
         </div>
-        <p className="consent" style={{ paddingBottom: 100, opacity: 0.6 }}>
-          Individual names, credentials and photographs are confirmed with each
-          team member before publication.
-        </p>
       </section>
 
       <section className="container">
@@ -75,7 +70,7 @@ export default function Team() {
           <Link href="/about/impact">Impact</Link>
           <Link href="/about/history">History</Link>
         </nav>
-        <div style={{ paddingBottom: 120 }}>
+        <div className="pagefoot">
           <Button href="/contact">Work With Us</Button>
         </div>
       </section>

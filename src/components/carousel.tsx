@@ -60,7 +60,6 @@ export default function Carousel({
           onClick={() => step(-1)}
           disabled={atStart}
           aria-label="Previous"
-          style={{ opacity: atStart ? 0.35 : 1 }}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
             <path d="M15 5l-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -72,7 +71,6 @@ export default function Carousel({
           onClick={() => step(1)}
           disabled={atEnd}
           aria-label="Next"
-          style={{ opacity: atEnd ? 0.35 : 1 }}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
             <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />

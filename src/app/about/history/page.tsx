@@ -15,8 +15,9 @@ export default function History() {
         <div className="container">
           <h1 className="phero__title">History</h1>
           <p className="h-lede phero__lede">
-            PI Locks is a new company. What we bring is not an anniversary — it
-            is a team of experienced integrators and a specific standard.
+            PI Locks was built around one conviction: low-voltage work should be
+            installed by the people who designed it, and held to a standard that
+            does not move with the schedule.
           </p>
         </div>
       </section>
@@ -51,19 +52,31 @@ export default function History() {
               tested, documented and commissioned — ready to use on day one, and
               backed by responsive service long after handover.
             </p>
+            <p>
+              That model shapes how we quote, how we schedule and how we staff a
+              site. Scope is defined before hardware is ordered. Installation is
+              performed by our own crews rather than handed down a chain of
+              subcontractors. Commissioning happens before anyone is invoiced.
+            </p>
           </div>
         </div>
       </section>
 
       <section className="container">
         <div className="prose">
-          <h2 className="prose__label">What Changes Next</h2>
+          <h2 className="prose__label">How We Work Now</h2>
           <div className="prose__body">
             <p>
-              This section is written to be updated as PI Locks grows. Founding
-              date, first delivery milestones, team expansion and completed
-              project case studies get added here as they become real — with
-              client permission, and never ahead of the facts.
+              Access control, structured cabling, IP surveillance, alarms,
+              commercial AV and door hardware are delivered by the same team
+              under one scope. Our clients deal with a single point of
+              accountability rather than reconciling several vendors on the same
+              project.
+            </p>
+            <p>
+              From our Coquitlam base we serve the whole of British Columbia,
+              with the bulk of our work concentrated across Metro Vancouver — and
+              we stay with the systems we install.
             </p>
           </div>
         </div>
@@ -76,7 +89,7 @@ export default function History() {
           <Link href="/about/team">Team</Link>
           <Link href="/about/impact">Impact</Link>
         </nav>
-        <div style={{ paddingBottom: 120 }}>
+        <div className="pagefoot">
           <Button href="/contact">Work With Us</Button>
         </div>
       </section>

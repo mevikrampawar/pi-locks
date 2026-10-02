@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CONTACT } from "@/components/contact-details";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How PI Locks collects, uses and protects personal information submitted through this website.",
+    "How PI Locks collects, uses and protects personal information you share with us.",
 };
 
 const UPDATED = "Last updated: draft — review required before launch";
@@ -35,9 +36,9 @@ export default function PrivacyPolicy() {
           <h2 className="prose__label">What We Collect</h2>
           <div className="prose__body">
             <p>
-              When you submit an enquiry we collect the information you provide:
-              your name, company, email address, phone number and the details of
-              your project.
+              When you contact us by phone or email we hold the information you
+              give us: your name, company, email address, phone number and the
+              details of your project.
             </p>
           </div>
         </div>
@@ -46,7 +47,7 @@ export default function PrivacyPolicy() {
           <h2 className="prose__label">How We Use It</h2>
           <div className="prose__body">
             <p>
-              We use enquiry information only to respond to you, to prepare and
+              We use that information only to respond to you, to prepare and
               quote for your project, and to maintain a record of our business
               correspondence.
             </p>
@@ -61,9 +62,9 @@ export default function PrivacyPolicy() {
           <h2 className="prose__label">Retention</h2>
           <div className="prose__body">
             <p>
-              Enquiry records are retained for as long as needed to support an
-              ongoing or prospective business relationship. Retention periods will
-              be confirmed in the approved policy.
+              Records are retained for as long as needed to support an ongoing
+              or prospective business relationship. Retention periods are
+              confirmed in the approved policy.
             </p>
           </div>
         </div>
@@ -74,8 +75,8 @@ export default function PrivacyPolicy() {
             <p>
               You can ask to see the personal information we hold about you, ask
               us to correct it, or ask us to delete it. Contact us at{" "}
-              <a href="mailto:info@pilocks.ca" className="link">
-                info@pilocks.ca
+              <a href={CONTACT.emailHref} className="link">
+                {CONTACT.email}
               </a>{" "}
               and we will respond.
             </p>
@@ -89,21 +90,18 @@ export default function PrivacyPolicy() {
         <div className="prose">
           <h2 className="prose__label">Contact</h2>
           <div className="prose__body">
-            <p>
-              PI Locks
-              <br />
-              #1 - 1322 Ketch Court
-              <br />
-              Coquitlam, BC V3K 6W1
-              <br />
-              <a href="mailto:info@pilocks.ca" className="link">
-                info@pilocks.ca
+            <address className="contactblock">
+              <span className="contactblock__org">PI Locks</span>
+              {CONTACT.addressLines.map((l) => (
+                <span key={l}>{l}</span>
+              ))}
+              <a href={CONTACT.emailHref} className="link">
+                {CONTACT.email}
               </a>
-              <br />
-              <a href="tel:+17787300914" className="link">
-                778-730-0914
+              <a href={CONTACT.phoneHref} className="link">
+                {CONTACT.phone}
               </a>
-            </p>
+            </address>
           </div>
         </div>
 

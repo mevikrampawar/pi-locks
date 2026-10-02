@@ -16,9 +16,16 @@ const TICKS = Array.from({ length: 24 }, (_, i) => i * 15);
 export default function KeywayEmblem({
   className = "",
   animated = false,
+  size,
 }: {
   className?: string;
   animated?: boolean;
+  /*
+    Intrinsic size. This must be explicit: a nested <svg> with no width or
+    height defaults to 100% of the parent viewport, not of its parent <g>,
+    which blew the hero mark up to full-stage dimensions.
+  */
+  size?: number | string;
 }) {
   // Circumference values for the stroke-draw sequence.
   const c92 = 2 * Math.PI * 92;
@@ -30,6 +37,8 @@ export default function KeywayEmblem({
   return (
     <svg
       viewBox="0 0 200 200"
+      width={size ?? 200}
+      height={size ?? 200}
       className={`emblem ${anim} ${className}`}
       role="img"
       aria-label="PI Locks keyway emblem"

@@ -48,9 +48,9 @@ export default function Impact() {
         <div className="container">
           <h1 className="phero__title">Impact</h1>
           <p className="h-lede phero__lede">
-            As a new company we do not publish project counts, years in business
-            or testimonials we have not yet earned. Instead, here is the standard
-            we hold every installation to.
+            Proof in this industry is not a number on a wall — it is whether the
+            system still works, and still makes sense, two years after handover.
+            These are the standards we hold every installation to.
           </p>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function Impact() {
           <Link href="/about/team">Team</Link>
           <Link href="/about/history">History</Link>
         </nav>
-        <div style={{ paddingBottom: 120 }}>
+        <div className="pagefoot">
           <Button href="/contact">Start Your Project</Button>
         </div>
       </section>

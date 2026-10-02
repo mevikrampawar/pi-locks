@@ -43,7 +43,7 @@ export default function HeroMark() {
 
       {/* ---- keyway emblem, centred behind the wordmark ---- */}
       <g transform="translate(960 372) scale(1.62) translate(-100 -100)">
-        <KeywayEmblem animated />
+        <KeywayEmblem animated size={200} />
       </g>
 
       {/* ---- wordmark ---- */}

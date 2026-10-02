@@ -124,7 +124,7 @@ export default function Portfolio() {
                       ))}
                     </ul>
                   </div>
-                  <div style={{ marginTop: 40 }}>
+                  <div className="svc__cta">
                     <Button href="/contact">Consult With Us</Button>
                   </div>
                 </div>

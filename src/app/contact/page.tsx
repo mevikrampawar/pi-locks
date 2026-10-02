@@ -1,23 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/button";
+import ContactDetails, { CONTACT, SERVICES } from "@/components/contact-details";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Talk to PI Locks about access control, CCTV, intercom, structured cabling and low-voltage systems. Based in Coquitlam, serving Metro Vancouver and British Columbia.",
 };
-
-const SERVICES = [
-  "Access Control & Physical Security",
-  "Structured Cabling & Fibre",
-  "IP Surveillance / CCTV",
-  "Alarm Systems",
-  "Commercial AV",
-  "Door Hardware & Locks",
-  "Low-Voltage Maintenance / MAC",
-  "Other",
-];
 
 export default function Contact() {
   return (
@@ -34,121 +24,77 @@ export default function Contact() {
 
       <section className="container">
         <div className="contact">
-          <form className="contact__form">
-            <div className="contact__block">
-              <label className="field">
-                <span className="sr-only">First Name</span>
-                <input type="text" name="firstName" placeholder="First Name" required />
-              </label>
-              <label className="field">
-                <span className="sr-only">Last Name</span>
-                <input type="text" name="lastName" placeholder="Last Name" required />
-              </label>
+          {/*
+            No form. The site is statically exported, so the previous form had
+            nowhere to post and silently discarded every enquiry. Direct
+            contact details are shown instead, with the service list so people
+            know what to ask about.
+          */}
+          <div className="contact__main">
+            <div className="contact__lead">
+              <h2 className="h-section">Speak With Us Directly</h2>
+              <p className="contact__lede">
+                Call during business hours for the fastest response on scope,
+                scheduling and pricing. Email is best for drawings, tender
+                packages and anything that needs a written record.
+              </p>
             </div>
 
-            <div className="contact__block">
-              <label className="field">
-                <span className="sr-only">Email</span>
-                <input type="email" name="email" placeholder="Email Address" required />
-              </label>
-              <label className="field">
-                <span className="sr-only">Phone</span>
-                <input type="tel" name="phone" placeholder="Phone Number" />
-              </label>
-            </div>
-
-            <label className="field-wrap field-wrap--block">
-              <span className="sr-only">Project Type</span>
-              <select name="project" defaultValue="">
-                <option value="" disabled>
-                  Project Type
-                </option>
-                {SERVICES.map((s) => (
-                  <option key={s}>{s}</option>
-                ))}
-              </select>
-              <i className="field__chev" aria-hidden="true" />
-            </label>
-
-            <label className="field-wrap">
-              <span className="sr-only">Message</span>
-              <textarea
-                className="field"
-                name="message"
-                rows={6}
-                placeholder="Tell us about the project"
-              />
-            </label>
-
-            <div className="contact__consent">
-              <label className="field__row">
-                <input type="checkbox" name="privacy" required />
-                <span className="field__box" aria-hidden="true" />
-                <span>
-                  I have read and agree to the{" "}
-                  <Link href="/privacy-policy" className="link">
-                    privacy policy
-                  </Link>
-                  .
+            <div className="contact__direct">
+              <a className="contact__direct-item" href={CONTACT.phoneHref}>
+                <span className="contact__direct-label">Telephone</span>
+                <span className="contact__direct-value">{CONTACT.phone}</span>
+              </a>
+              <a className="contact__direct-item" href={CONTACT.emailHref}>
+                <span className="contact__direct-label">Email</span>
+                <span className="contact__direct-value">{CONTACT.email}</span>
+              </a>
+              <a
+                className="contact__direct-item"
+                href={CONTACT.mapHref}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <span className="contact__direct-label">Headquarters</span>
+                <span className="contact__direct-value">
+                  {CONTACT.addressLines[0]}
+                  <br />
+                  {CONTACT.addressLines[1]}
                 </span>
-              </label>
+              </a>
             </div>
 
-            <div className="contact__submit">
-              <Button href="/contact" variant="dark">
-                Send Enquiry
+            <div className="contact__scopefix">
+              <h3 className="h-title-sm">What We Take On</h3>
+              <ul className="contact__scope">
+                {SERVICES.map((s) => (
+                  <li key={s} className="contact__scope-item">
+                    {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="contact__actions">
+              <Button href={CONTACT.phoneHref} variant="dark">
+                Call {CONTACT.phone}
+              </Button>
+              <Button href={CONTACT.emailHref} variant="outline">
+                Email {CONTACT.email}
               </Button>
             </div>
-          </form>
 
-          <aside className="contact__aside">
-            <div className="cinfo">
-              <h2 className="cinfo__label">Headquarters</h2>
-              <p className="cinfo__body">
-                <a
-                  href="https://maps.google.com/?q=1322+Ketch+Court+Coquitlam+BC"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="link"
-                >
-                  #1 - 1322 Ketch Court
-                  <br />
-                  Coquitlam, BC V3K 6W1
-                </a>
-              </p>
-            </div>
+            <p className="contact__fine">
+              Information you send is used only to respond to your enquiry. See
+              our{" "}
+              <Link href="/privacy-policy" className="link">
+                privacy policy
+              </Link>
+              .
+            </p>
+          </div>
 
-            <div className="cinfo">
-              <h2 className="cinfo__label">Contact</h2>
-              <p className="cinfo__body">
-                <a href="mailto:info@pilocks.ca" className="link">
-                  info@pilocks.ca
-                </a>
-                <br />
-                <a href="tel:+17787300914" className="link">
-                  778-730-0914
-                </a>
-              </p>
-            </div>
-
-            <div className="cinfo">
-              <h2 className="cinfo__label">Hours</h2>
-              <p className="cinfo__body">
-                Monday – Friday
-                <br />
-                9:00 AM – 5:00 PM
-              </p>
-            </div>
-
-            <div className="cinfo">
-              <h2 className="cinfo__label">Service Area</h2>
-              <p className="cinfo__body">
-                Metro Vancouver and British Columbia.
-                <br />
-                Canada.
-              </p>
-            </div>
-          </aside>
+          <ContactDetails />
         </div>
       </section>
     </>
