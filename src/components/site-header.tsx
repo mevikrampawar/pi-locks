@@ -82,7 +82,7 @@ export default function SiteHeader() {
                   href="/portfolio"
                   className={isActive("/portfolio") ? "is-active" : ""}
                 >
-                  Portfolio
+                  Services
                 </Link>
               </li>
               <li className="hdr__has-sub">
@@ -131,7 +131,7 @@ export default function SiteHeader() {
             <ul>
               <li>
                 <Link href="/portfolio" onClick={close}>
-                  Portfolio
+                  Services
                 </Link>
               </li>
               <li>

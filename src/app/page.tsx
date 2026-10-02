@@ -4,56 +4,64 @@ import Carousel from "@/components/carousel";
 import HeroMark from "@/components/hero-mark";
 
 const IMG = {
+  /* services */
   rack: "photo-1558494949-ef010cbdcc31",
   board: "photo-1551434678-e076c223a692",
   cctv: "photo-1557597774-9d273605dfa9",
-  office: "photo-1497366216548-37526070297c",
-  engineer: "photo-1581092160562-40aa08e78837",
-  site: "photo-1581094794329-c8112a89af12",
-  tower: "photo-1486406146926-c627a92ad1ab",
-  strata: "photo-1560518883-ce09059eeffa",
-  hospital: "photo-1519494026892-80bbd2d6fd0d",
-  school: "photo-1580582932707-520aed937b7b",
-  resi: "photo-1545324418-cc1a3fa10c00",
   keys: "photo-1521791136064-7986c2920216",
+  engineer: "photo-1581092160562-40aa08e78837",
+  av: "photo-1598488035139-bdbb2231ce04",
+  /* client types */
+  contractor: "photo-1503387762-592deb58ef4e",
+  designer: "photo-1600585154340-be6161a56a0c",
+  property: "photo-1486406146926-c627a92ad1ab",
+  strata: "photo-1545324418-cc1a3fa10c00",
+  tenant: "photo-1441986300917-64674bd600d8",
 };
 
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 
-/* Capability showcase — what we build, by sector. No client names. */
+/*
+  Capability showcase — drawn directly from the client's service breakdown.
+  No client names, no project claims.
+*/
 const SLIDES = [
   {
-    tag: "Commercial",
-    title: "Cloud-Managed Access Control",
+    tag: "Access Control",
+    title: "Card & Fob Readers, Cloud Access, Mobile Credentials",
     img: IMG.rack,
   },
   {
-    tag: "Commercial",
-    title: "Structured Cabling & Fibre Backbone",
+    tag: "Access Control",
+    title: "Smart Locks & Intercom Entry Systems",
+    img: IMG.keys,
+  },
+  {
+    tag: "Structured Cabling",
+    title: "Cat6 / Cat6A Data Drops & Fibre Backbone",
     img: IMG.board,
   },
   {
-    tag: "Institutional",
-    title: "IP Surveillance & Video Analytics",
+    tag: "Surveillance",
+    title: "IP Cameras, NVR Setups & Cloud / AI Analytics",
     img: IMG.cctv,
   },
   {
-    tag: "Residential",
-    title: "Strata Entry & Intercom Systems",
-    img: IMG.strata,
+    tag: "Other Services",
+    title: "Alarm Systems, Commercial AV & Door Hardware",
+    img: IMG.av,
   },
   {
-    tag: "Infrastructure",
-    title: "IT Infrastructure & Rack Build",
-    img: IMG.office,
+    tag: "Ongoing",
+    title: "Low-Voltage Maintenance & MAC Services",
+    img: IMG.engineer,
   },
 ];
 
 /*
-  "Our Standard" — the six proof points from the PI Locks content
-  profile. Deliberately NOT a stats band: PI Locks is a new company and
-  no project counts, years, or certifications are published as fact.
+  "Our Standard" — deliberately NOT a stats band. The client has not published
+  certifications, project counts or years in business, so none are claimed here.
 */
 const STANDARD = [
   {
@@ -68,50 +76,57 @@ const STANDARD = [
   },
   {
     key: "03",
-    title: "Trusted Brand Ecosystem",
-    body: "Installations built on proven OEM platforms — Salto, Avigilon, ICT, Axis, 2N, Panduit and Eaton.",
+    title: "One Scope, One Team",
+    body: "Access control, cabling, surveillance, alarms, AV and door hardware are delivered by the same crew — not split across five subcontractors.",
   },
   {
     key: "04",
-    title: "Responsive Ongoing Support",
-    body: "Service and maintenance that continues long after handover, through our Coquitlam base.",
+    title: "British Columbia Coverage",
+    body: "Headquartered in Coquitlam, serving all of British Columbia with a primary focus on Metro Vancouver.",
   },
   {
     key: "05",
-    title: "Compliance-Aware Delivery",
-    body: "Systems specified and installed with applicable codes and standards in mind. Certification claims confirmed on request.",
+    title: "Maintenance & MAC Support",
+    body: "Low-voltage maintenance and move, add, change work continues after handover — the system is never handed over and abandoned.",
   },
   {
     key: "06",
     title: "Craftsmanship-First Workmanship",
-    body: "Quality of finish on every device, cable run and rack — the part of the job that actually lasts.",
+    body: "Quality of finish on every device, cable run, rack and patch panel — the part of the job that actually lasts.",
   },
 ];
 
-const SECTORS = [
+/* The five client types PI Locks works for. */
+const CLIENTS = [
   {
-    tag: "Healthcare",
-    title: "Nursecall, Access & Unified Video",
-    body: "UL-listed compliant nursecall, hardwired and wireless, from independent living through to acute care — with wander management tied to access control and alerts routed to signage and PA.",
-    img: IMG.hospital,
+    tag: "General & Electrical Contractors",
+    title: "A Subcontractor Who Finishes the Job",
+    body: "Access control, cabling, surveillance and low-voltage scope installed by our own crews, documented and handed over clean — so your GC does not chase loose ends. We work inside your construction schedule and leave the site ready.",
+    img: IMG.contractor,
   },
   {
-    tag: "Education",
-    title: "Lockdown, Mass Notification & Entry",
-    body: "Two-way audio, text, strobe and display notification purpose-built for campuses, plus intercom-driven visitor management and elevator floor control.",
-    img: IMG.school,
+    tag: "Architects & Interior Designers",
+    title: "Systems That Match the Design Intent",
+    body: "Early involvement, clear specification and scope-consultant-grade documentation. We work from your drawings, flag anything that will not work in the space, and hand over as-builts your consultant can rely on.",
+    img: IMG.designer,
   },
   {
-    tag: "Commercial",
-    title: "Tenant Fit-Out & Building Systems",
-    body: "Structured cabling, switching, power backup and monitoring delivered inside live tenancies without disruption to trading hours.",
-    img: IMG.tower,
+    tag: "Commercial Real Estate & Property Managers",
+    title: "One Vendor Across Multiple Buildings",
+    body: "Access, CCTV and cabling managed as a single service relationship instead of a patchwork of vendors. Routine service, maintenance and MAC work handled from a single point of contact in Coquitlam.",
+    img: IMG.property,
   },
   {
-    tag: "Residential",
-    title: "Strata Entry & In-Suite Control",
-    body: "IP intercoms with video, mobile resident apps and cloud control — visitor entry, delivery management and elevator access put in residents' hands.",
-    img: IMG.resi,
+    tag: "Multi-Family Residential & Strata",
+    title: "Entry, Intercom & Common-Area Systems",
+    body: "Entry control, intercom, parking and common-area coverage for strata corporations — installed to suit existing building wiring where possible, and documented so the next contractor can pick it up.",
+    img: IMG.strata,
+  },
+  {
+    tag: "Retail, Industrial & Office TI",
+    title: "Low-Voltage Fit-Out, Delivered to Programme",
+    body: "Tenant-improvement low voltage delivered around live trading hours and existing building systems — cabling, access, cameras, alarms and AV coordinated as one package on one schedule.",
+    img: IMG.tenant,
   },
 ];
 
@@ -134,7 +149,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            poster={u(IMG.tower, 2400)}
+            poster={u(IMG.property, 2400)}
             aria-hidden="true"
           >
             <source
@@ -178,8 +193,8 @@ export default function Home() {
       <section className="band">
         <div className="media ratio-16x9">
           <img
-            src={u(IMG.tower, 2400)}
-            alt="Commercial tower exterior"
+            src={u(IMG.property, 2400)}
+            alt="Commercial office building exterior"
             loading="lazy"
           />
         </div>
@@ -216,7 +231,7 @@ export default function Home() {
                     <p className="slider__tag">{s.tag}</p>
                     <h3 className="h-card">{s.title}</h3>
                     <span className="btn btn--dark btn--static">
-                      <span>Learn More</span>
+                      <span>View Services</span>
                       <i className="btn__arrow" aria-hidden="true">
                         <span />
                         <span />
@@ -254,26 +269,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --------------------------------------------------------- sectors */}
+      {/* --------------------------------------------------- client types */}
       <section className="news">
         <div className="container">
           <div className="news__head">
-            <h2 className="h-section reveal">Sectors We Build For</h2>
+            <h2 className="h-section reveal">Who We Work For</h2>
           </div>
           <div className="news__list">
-            {SECTORS.map((s) => (
-              <article key={s.title} className="news__item">
-                <Link href="/portfolio">
+            {CLIENTS.map((c) => (
+              <article key={c.title} className="news__item">
+                <Link href="/contact">
                   <div className="media ratio-4x3">
-                    <img src={u(s.img, 1200)} alt={s.title} loading="lazy" />
+                    <img src={u(c.img, 1200)} alt={c.title} loading="lazy" />
                   </div>
                 </Link>
                 <div className="news__meta">
-                  <p className="news__date">{s.tag}</p>
-                  <h3 className="news__title">{s.title}</h3>
-                  <p className="news__body">{s.body}</p>
+                  <p className="news__date">{c.tag}</p>
+                  <h3 className="news__title">{c.title}</h3>
+                  <p className="news__body">{c.body}</p>
                   <span className="news__link">
-                    <Button href="/portfolio">View Typical Scope</Button>
+                    <Button href="/contact">Discuss Your Project</Button>
                   </span>
                 </div>
               </article>
@@ -348,20 +363,19 @@ export default function Home() {
                 </label>
               </div>
 
-              <label className="field field--block" style={{ marginBottom: 40 }}>
+              <label className="field-wrap">
                 <span className="sr-only">Service</span>
                 <select name="service" defaultValue="" required>
                   <option value="" disabled>
                     Service Required
                   </option>
-                  <option>Electronic Access Control</option>
-                  <option>CCTV &amp; Video Surveillance</option>
-                  <option>Door Intercom &amp; Entry Systems</option>
+                  <option>Access Control &amp; Physical Security</option>
                   <option>Structured Cabling &amp; Fibre</option>
-                  <option>Telephony &amp; PA</option>
-                  <option>Audio-Video Systems</option>
-                  <option>IT Infrastructure</option>
-                  <option>Design Consulting</option>
+                  <option>IP Surveillance / CCTV</option>
+                  <option>Alarm Systems</option>
+                  <option>Commercial AV</option>
+                  <option>Door Hardware &amp; Locks</option>
+                  <option>Low-Voltage Maintenance / MAC</option>
                 </select>
               </label>
 

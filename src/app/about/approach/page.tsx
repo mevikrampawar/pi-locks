@@ -5,7 +5,7 @@ import Button from "@/components/button";
 export const metadata: Metadata = {
   title: "Approach",
   description:
-    "PI Locks' delivery methodology — independent design guidance, line-by-line proposals, installation by our own trained crews, and commissioned, documented handover.",
+    "PI Locks' delivery methodology — a design consultation, a line-by-line proposal, installation by our own trained crews, and commissioned, documented handover.",
 };
 
 const STEPS = [
@@ -37,10 +37,10 @@ const STEPS = [
 ];
 
 const ENGAGEMENTS = [
-  { name: "Design Consulting", body: "Independent, quality-first guidance before a single cable is pulled." },
   { name: "New Builds", body: "Single-accountability delivery from ground-up construction." },
+  { name: "Tenant Improvements", body: "Fit-out low voltage delivered around live trading hours." },
   { name: "Retrofits", body: "Modernisation of existing systems with minimal disruption to operations." },
-  { name: "Service & Support", body: "Maintenance, MAC service and fault response on installed systems." },
+  { name: "Maintenance & MAC", body: "Low-voltage maintenance, move-add-change and fault response on installed systems." },
 ];
 
 export default function Approach() {
@@ -91,7 +91,7 @@ export default function Approach() {
           <Link href="/about/history">History</Link>
         </nav>
         <div style={{ paddingBottom: 120 }}>
-          <Button href="/contact">Free Design Consultation</Button>
+          <Button href="/contact">Start a Consultation</Button>
         </div>
       </section>
     </>

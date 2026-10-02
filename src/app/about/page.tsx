@@ -8,22 +8,26 @@ export const metadata: Metadata = {
     "PI Locks was founded to set a higher bar for systems installation — experienced integrators taking full accountability for design, installation, commissioning and support.",
 };
 
-const SECTORS = [
+const CLIENTS = [
   {
-    name: "Healthcare",
-    body: "Nursecall, access control and unified video for independent living through to acute care.",
+    name: "General & Electrical Contractors",
+    body: "Low-voltage scope installed by our own crews, documented and handed over clean.",
   },
   {
-    name: "Education",
-    body: "Lockdown, mass notification and controlled entry across campuses and community facilities.",
+    name: "Architects & Interior Designers",
+    body: "Early involvement, clear specification and as-built documentation your consultant can rely on.",
   },
   {
-    name: "Commercial",
-    body: "Tenant fit-out, structured cabling and building systems delivered around live trading hours.",
+    name: "Commercial Real Estate & Property Managers",
+    body: "One service relationship across access, CCTV, cabling and maintenance.",
   },
   {
-    name: "Residential",
-    body: "Strata entry, intercom and in-suite control with resident apps and visitor management.",
+    name: "Multi-Family Residential & Strata",
+    body: "Entry, intercom and common-area systems that suit existing building wiring where possible.",
+  },
+  {
+    name: "Retail, Industrial & Office TI",
+    body: "Fit-out low voltage delivered around live trading hours and existing building systems.",
   },
 ];
 
@@ -61,12 +65,12 @@ export default function About() {
 
       <section className="container">
         <div className="prose">
-          <h2 className="prose__label">Sectors</h2>
+          <h2 className="prose__label">Who We Work For</h2>
           <div className="prose__body">
             <ul className="ticks ticks--lg">
-              {SECTORS.map((s) => (
-                <li key={s.name} className="tick">
-                  <strong>{s.name}</strong> — {s.body}
+              {CLIENTS.map((c) => (
+                <li key={c.name} className="tick">
+                  <strong>{c.name}</strong> — {c.body}
                 </li>
               ))}
             </ul>

@@ -1414,7 +1414,9 @@ select.field {
    Portfolio — services
    ============================================================ */
 .svc-list {
-  padding-bottom: 100px;
+  margin: 0;
+  padding: 0 0 100px;
+  list-style: none;
 }
 .svc {
   padding: 48px 0;
@@ -1428,10 +1430,51 @@ select.field {
 .svc:last-child {
   border-bottom: 1px solid var(--c-hairline);
 }
+.svc__head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px 40px;
+}
+@media (min-width: 768px) {
+  .svc__head {
+    grid-template-columns: 90px 1fr;
+    align-items: baseline;
+  }
+}
+@media (min-width: 1024px) {
+  .svc__head {
+    grid-template-columns: 160px 1fr;
+  }
+}
+.svc__key {
+  color: var(--c-grey);
+  font-size: 1.6rem;
+}
+@media (min-width: 768px) {
+  .svc__key {
+    font-size: 2.4rem;
+  }
+}
+.svc__head .detail__title {
+  margin: 0;
+}
 .svc__grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
+}
+@media (min-width: 768px) {
+  .svc__grid {
+    padding-left: 130px;
+  }
+}
+@media (min-width: 1024px) {
+  .svc__grid {
+    padding-left: 200px;
+  }
+}
+.svc .detail {
+  padding-bottom: 0;
 }
 .svc__block {
   margin: 0 0 40px;

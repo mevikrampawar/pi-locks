@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Next.js regenerates these agent rule files locally on `next dev`
+AGENTS.md
+CLAUDE.md

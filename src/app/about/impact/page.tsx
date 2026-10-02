@@ -5,7 +5,7 @@ import Button from "@/components/button";
 export const metadata: Metadata = {
   title: "Impact",
   description:
-    "The six PI Locks proof points — accountable turnkey delivery, commissioned handover, trusted OEM platforms, responsive support, compliance-aware delivery and craftsmanship-first workmanship.",
+    "The six PI Locks proof points — accountable turnkey delivery, commissioned handover, one scope and one team, British Columbia coverage, ongoing maintenance support and craftsmanship-first workmanship.",
 };
 
 const POINTS = [
@@ -21,18 +21,18 @@ const POINTS = [
   },
   {
     key: "03",
-    title: "Trusted Brand Ecosystem",
-    body: "Installations built on proven OEM platforms from Salto, Avigilon, ICT, Axis, 2N, Valcom, Panduit and Eaton — supported supply chains and real product roadmaps.",
+    title: "One Scope, One Team",
+    body: "Access control, cabling, surveillance, alarms, AV and door hardware are delivered by the same crew — not split across five subcontractors who each blame the other.",
   },
   {
     key: "04",
-    title: "Responsive Ongoing Support",
-    body: "Service does not end at handover. Responsive maintenance and MAC support run out of our Coquitlam base across Metro Vancouver and British Columbia.",
+    title: "British Columbia Coverage",
+    body: "Headquartered in Coquitlam, serving all of British Columbia with a primary focus on Metro Vancouver.",
   },
   {
     key: "05",
-    title: "Compliance-Aware Delivery",
-    body: "Systems specified and installed with applicable codes and standards in mind. Specific certifications, dealer statuses and listing claims are provided on request.",
+    title: "Maintenance & MAC Support",
+    body: "Low-voltage maintenance and move, add, change work continues after handover. The system is never handed over and abandoned.",
   },
   {
     key: "06",

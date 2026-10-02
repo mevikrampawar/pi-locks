@@ -9,14 +9,13 @@ export const metadata: Metadata = {
 };
 
 const SERVICES = [
-  "Electronic Access Control",
-  "CCTV & Video Surveillance",
-  "Door Intercom & Entry Systems",
+  "Access Control & Physical Security",
   "Structured Cabling & Fibre",
-  "Telephony & PA",
-  "Audio-Video Systems",
-  "IT Infrastructure",
-  "Design Consulting",
+  "IP Surveillance / CCTV",
+  "Alarm Systems",
+  "Commercial AV",
+  "Door Hardware & Locks",
+  "Low-Voltage Maintenance / MAC",
   "Other",
 ];
 
@@ -138,8 +137,6 @@ export default function Contact() {
                 Monday – Friday
                 <br />
                 9:00 AM – 5:00 PM
-                <br />
-                <em>Emergency service available on request.</em>
               </p>
             </div>
 
