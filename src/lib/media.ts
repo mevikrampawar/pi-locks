@@ -8,60 +8,78 @@
 
   Rule: one id per slot, no id reused anywhere on the site. If you add a
   slot, add a new id here — do not borrow an existing one.
+
+  Art direction
+  -------------
+  The site is positioned against architectural developers (the reference
+  brief), not against IT resellers. Every photograph is therefore a piece
+  of contemporary West Coast architecture — dusk and golden-hour exteriors,
+  glass, concrete, timber and warm interior light — rather than the
+  circuit-board / server-rack / ceiling-dome / handshake imagery that made
+  an earlier pass read like a cabling supplier's price list.
+
+  Two hosts are used:
+    u() — Unsplash, `photo-<id>`
+    p() — Pexels,   `<numeric id>`
+
+  Both permit hotlinking at the widths requested here.
 */
 
 const u = (id: string, w = 1600) =>
   `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
 
+const p = (id: string, w = 1600) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+
 /*
   Hero video.
 
-  The previous source was a hotlink to mixkit.co that had started returning
-  HTTP 403, so the hero was silently falling back to its poster with no video
-  at all. The reference site carries a video in this exact slot, so the slot
-  stays — but the source is registered here rather than inlined, which makes it
-  a one-line change and gives the poster a single home too.
+  Stock: Pexels, "Drone Footage of a Buildings" — a slow aerial pass over
+  modern towers. Chosen to replace the previous clip ("Blue Colored
+  Cables"), which was technically fine but read as a cabling supplier's
+  own advert and undercut the whole positioning.
 
-  Stock: Pexels, "Blue Colored Cables" — cable management, patching and
-  connectivity. Replace src if you would rather run brand footage of your own.
+  The poster below is deliberately a dusk architectural frame, so if the
+  video is blocked, throttled or fails to decode, the hero still lands on a
+  premium image rather than on nothing. Swap `src` for brand footage of
+  your own at any time — it is the only line that needs to change.
 */
 export const HERO_VIDEO = {
-  src: "https://videos.pexels.com/video-files/1085656/1085656-hd_1280_720_25fps.mp4",
+  src: "https://videos.pexels.com/video-files/6950314/6950314-hd_1920_1080_30fps.mp4",
 } as const;
 
 export const img = {
   /* hero poster — sits behind the video, so it must stand alone */
-  heroPoster: u("photo-1518770660439-4636190af475", 2400),
+  heroPoster: p("4626268", 2400),
 
   /* full-bleed mid-page band */
-  band: u("photo-1497366811353-6870744d04b2", 2400),
+  band: p("10344206", 2400),
 
   /* capability carousel */
-  accessRack: u("photo-1558494949-ef010cbdcc31"),
-  patchPanel: u("photo-1551434678-e076c223a692"),
-  cameras: u("photo-1557597774-9d273605dfa9"),
-  smartLock: u("photo-1521791136064-7986c2920216"),
-  technician: u("photo-1581092160562-40aa08e78837"),
+  accessRack: p("5098634"),
+  patchPanel: p("28481587"),
+  cameras: p("37435153"),
+  smartLock: p("7598365"),
+  technician: p("6794929"),
   av: u("photo-1598488035139-bdbb2231ce04"),
 
   /* who we work for */
-  gc: u("photo-1503387762-592deb58ef4e", 1200),
+  gc: p("1666667", 1200),
   designer: u("photo-1600585154340-be6161a56a0c", 1200),
   property: u("photo-1486406146926-c627a92ad1ab", 1200),
   strata: u("photo-1545324418-cc1a3fa10c00", 1200),
   tenant: u("photo-1441986300917-64674bd600d8", 1200),
 
   /* services route */
-  structuredCabling: u("photo-1581092918056-0c4c3acd3789"),
-  accessControl: u("photo-1560732488-6b0df240254a"),
-  surveillance: u("photo-1610557892470-55d9e80c0bce"),
-  doorHardware: u("photo-1560518883-ce09059eeffa"),
-  commercial: u("photo-1487958449943-2429e8be8625"),
-  office: u("photo-1497366754035-f200968a6e72"),
+  structuredCabling: p("38816564"),
+  accessControl: p("18415802"),
+  surveillance: p("28532416"),
+  doorHardware: p("6146552"),
+  commercial: p("33857126"),
+  office: p("31117874"),
 
-  /* team route — role illustrations, not portraits of real staff */
-  teamLeadership: u("photo-1454165804606-c3d57bc86b40"),
-  teamTechnical: u("photo-1581092580497-e0d23cbdf1dc"),
-  teamInstall: u("photo-1581094794329-c8112a89af12"),
-  teamService: u("photo-1621905251189-08b45d6a269e"),
+  /* about route */
+  history: p("26859301"),
+  approach: p("33798955"),
+  impact: p("31884675"),
 } as const;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/button";
+import { img } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -18,6 +19,9 @@ const SERVICES = [
   {
     key: "01",
     name: "Access Control & Physical Security",
+    image: img.accessControl,
+    imageAlt:
+      "Electronic access and entry readers serving a multi-tenant residential lobby",
     body: "Electronic access and entry systems for contractors, architects, property managers and strata across British Columbia — specified, installed, commissioned and handed over documented.",
     scope: [
       "Card and fob readers",
@@ -30,6 +34,9 @@ const SERVICES = [
   {
     key: "02",
     name: "Structured Cabling & Fiber",
+    image: img.structuredCabling,
+    imageAlt:
+      "Riser and corridor containment housing structured cabling behind a modern facade",
     body: "The back-of-house backbone that every other system depends on — dressed, labelled and tested so it is maintainable by whoever comes next.",
     scope: [
       "Cat6 / Cat6A data drops",
@@ -41,6 +48,9 @@ const SERVICES = [
   {
     key: "03",
     name: "IP Surveillance / CCTV",
+    image: img.surveillance,
+    imageAlt:
+      "Daylit atrium interior typical of a commercial camera and intercom deployment",
     body: "Camera, recording and analytics infrastructure for commercial, industrial, office and multi-family sites — designed around what you actually need to see and be alerted to.",
     scope: [
       "Security cameras",
@@ -51,6 +61,9 @@ const SERVICES = [
   {
     key: "04",
     name: "Other Services",
+    image: img.doorHardware,
+    imageAlt:
+      "Serviced hallway and entrance doors where alarms, AV and door hardware are commissioned",
     body: "The supporting scope that usually gets missed on a fit-out — and the ongoing work that keeps installed systems healthy.",
     scope: [
       "Alarm systems",
@@ -112,6 +125,11 @@ export default function Portfolio() {
                 <h2 className="detail__title">{s.name}</h2>
               </div>
               <div className="svc__grid">
+                <figure className="svc__figure">
+                  <div className="media ratio-4x3">
+                    <img src={s.image} alt={s.imageAlt} loading="lazy" />
+                  </div>
+                </figure>
                 <div className="detail">
                   <p>{s.body}</p>
                   <div className="svc__block">

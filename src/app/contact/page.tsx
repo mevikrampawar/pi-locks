@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/button";
 import ContactDetails, { CONTACT, SERVICES } from "@/components/contact-details";
+import { img } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -19,6 +20,16 @@ export default function Contact() {
             Tell us what you are building. We will come back with honest scope,
             an honest specification and an honest budget range.
           </p>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="media ratio-16x9">
+          <img
+            src={img.commercial}
+            alt="Daylit lobby in a contemporary commercial building"
+            loading="lazy"
+          />
         </div>
       </section>
 

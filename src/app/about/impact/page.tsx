@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/button";
+import { img } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Impact",
@@ -52,6 +53,12 @@ export default function Impact() {
             system still works, and still makes sense, two years after handover.
             These are the standards we hold every installation to.
           </p>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="media ratio-16x9">
+          <img src={img.impact} alt="Daylit atrium interior of a contemporary multi-storey building" loading="lazy" />
         </div>
       </section>
 

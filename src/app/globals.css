@@ -452,22 +452,22 @@ textarea {
 }
 
 /* ---------- media frame ---------- */
+/*
+  Frames are deliberately square-cornered.
+
+  An earlier pass rounded every image to 20/30/40px, which is the default
+  look of a template and, more importantly, fights the positioning: the
+  reference sites this work is measured against present architecture in
+  sharp rectangular frames, so the photography reads as documentation of a
+  building rather than as a decorated card. Sharp corners also let the
+  full-bleed bands meet the page edge cleanly.
+*/
 .media {
   position: relative;
   overflow: hidden;
   background-color: var(--c-grey);
-  border-radius: 20px;
+  border-radius: 0;
   isolation: isolate;
-}
-@media (min-width: 1200px) {
-  .media {
-    border-radius: 30px;
-  }
-}
-@media (min-width: 1440px) {
-  .media {
-    border-radius: 40px;
-  }
 }
 .media img {
   position: absolute;

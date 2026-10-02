@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/button";
+import { img } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "About",
@@ -42,6 +43,16 @@ export default function About() {
             team of experienced integrators who take full accountability for
             design, installation, commissioning and support.
           </p>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="media ratio-16x9">
+          <img
+            src={img.office}
+            alt="Contemporary West Coast mixed-use development"
+            loading="lazy"
+          />
         </div>
       </section>
 

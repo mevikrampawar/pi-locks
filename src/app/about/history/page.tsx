@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/button";
+import { img } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "History",
@@ -19,6 +20,12 @@ export default function History() {
             installed by the people who designed it, and held to a standard that
             does not move with the schedule.
           </p>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="media ratio-16x9">
+          <img src={img.history} alt="Contemporary townhouse architecture and landscaped entry steps" loading="lazy" />
         </div>
       </section>
 

@@ -1533,6 +1533,21 @@
     padding-left: 200px;
   }
 }
+.svc__figure {
+  margin: 0 0 var(--sp-6);
+}
+@media (min-width: 1024px) {
+  .svc__grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: var(--sp-7);
+    align-items: start;
+  }
+  .svc__figure {
+    position: sticky;
+    top: calc(var(--header-h) + var(--sp-5));
+    margin: 0;
+  }
+}
 .svc .detail {
   padding-bottom: 0;
 }

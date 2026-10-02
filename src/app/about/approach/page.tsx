@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Button from "@/components/button";
+import { img } from "@/lib/media";
 
 export const metadata: Metadata = {
   title: "Approach",
@@ -53,6 +54,12 @@ export default function Approach() {
             Independent, quality-first guidance on choosing and specifying the
             right building technology systems — before a single cable is pulled.
           </p>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="media ratio-16x9">
+          <img src={img.approach} alt="Rooftop terrace and skyline of a contemporary mixed-use development" loading="lazy" />
         </div>
       </section>
 
