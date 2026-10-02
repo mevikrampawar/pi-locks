@@ -1,108 +1,110 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import Button from "@/components/button";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "PI Locks was founded to set a higher bar for systems installation — experienced integrators taking full accountability for design, installation, commissioning and support.",
+};
+
+const SECTORS = [
+  {
+    name: "Healthcare",
+    body: "Nursecall, access control and unified video for independent living through to acute care.",
+  },
+  {
+    name: "Education",
+    body: "Lockdown, mass notification and controlled entry across campuses and community facilities.",
+  },
+  {
+    name: "Commercial",
+    body: "Tenant fit-out, structured cabling and building systems delivered around live trading hours.",
+  },
+  {
+    name: "Residential",
+    body: "Strata entry, intercom and in-suite control with resident apps and visitor management.",
+  },
+];
 
 export default function About() {
   return (
-    <div className="bg-white text-black min-h-screen">
-      
-      {/* About Hero */}
-      <section className="pt-32 pb-24 md:pt-48 md:pb-32 px-8 md:px-12 bg-black text-white">
-        <div className="max-w-[1920px] mx-auto">
-          <h1 className="text-6xl md:text-8xl font-light tracking-tighter uppercase mb-16">
-            About Us
-          </h1>
-          <p className="text-2xl md:text-4xl font-light max-w-3xl leading-snug">
-            We are dedicated to defining the standard in physical security and structured cabling.
+    <>
+      <section className="phero">
+        <div className="container">
+          <h1 className="phero__title">About</h1>
+          <p className="h-lede phero__lede">
+            PI Locks was founded to set a higher bar for systems installation — a
+            team of experienced integrators who take full accountability for
+            design, installation, commissioning and support.
           </p>
         </div>
       </section>
 
-      {/* Approach */}
-      <section id="approach" className="py-24 md:py-32 px-8 md:px-12 border-b border-gray-200">
-        <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row gap-16">
-          <div className="md:w-1/3">
-            <h2 className="text-3xl font-medium uppercase tracking-widest">Approach</h2>
-          </div>
-          <div className="md:w-2/3">
-            <p className="text-2xl md:text-4xl font-light leading-relaxed mb-12">
-              Our methodology centers on robust, scalable, and sophisticated low-voltage solutions for contractors, real estate, and enterprise clients. We combine precision engineering with practical execution.
+      <section className="container">
+        <div className="prose">
+          <h2 className="prose__label">The PI Promise</h2>
+          <div className="prose__body">
+            <p>
+              What does &ldquo;premium&rdquo; mean here? It means the system
+              arrives fully designed, installed, tested, documented and
+              commissioned — ready to use on day one, and backed by responsive
+              service long after handover.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-xl font-bold mb-4">Target Verticals</h3>
-                <ul className="space-y-2 text-lg font-light text-gray-700">
-                  <li>General & Electrical Contractors</li>
-                  <li>Architects & Interior Designers</li>
-                  <li>Commercial Real Estate</li>
-                  <li>Multi-Family Residential</li>
-                  <li>Retail & Industrial TI</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-4">Core Services</h3>
-                <ul className="space-y-2 text-lg font-light text-gray-700">
-                  <li>Access Control & Security</li>
-                  <li>Structured Cabling & Fiber</li>
-                  <li>IP Surveillance / CCTV</li>
-                  <li>Commercial AV & Alarms</li>
-                </ul>
-              </div>
-            </div>
+            <p>
+              No half-finished installations. No loose ends. That&rsquo;s the PI
+              Locks standard.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section id="team" className="py-24 md:py-32 px-8 md:px-12 border-b border-gray-200">
-        <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row gap-16">
-          <div className="md:w-1/3">
-            <h2 className="text-3xl font-medium uppercase tracking-widest">Team</h2>
-          </div>
-          <div className="md:w-2/3">
-            <p className="text-xl font-light leading-relaxed mb-16 max-w-2xl">
-              Our certified professionals bring over a decade of specialized experience to every deployment. [Placeholder for future team members]
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[1, 2, 3].map((item) => (
-                <div key={item} className="group">
-                  <div className="relative aspect-square bg-gray-100 mb-6 grayscale group-hover:grayscale-0 transition-all duration-500">
-                    {/* Placeholder image */}
-                  </div>
-                  <h3 className="text-xl font-medium mb-1">Team Member {item}</h3>
-                  <p className="text-sm font-light text-gray-500 uppercase tracking-widest">Position</p>
-                </div>
+      <section className="container">
+        <div className="prose">
+          <h2 className="prose__label">Sectors</h2>
+          <div className="prose__body">
+            <ul className="ticks ticks--lg">
+              {SECTORS.map((s) => (
+                <li key={s.name} className="tick">
+                  <strong>{s.name}</strong> — {s.body}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Impact & History placeholders */}
-      <section id="impact" className="py-24 md:py-32 px-8 md:px-12 border-b border-gray-200 bg-gray-50">
-        <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row gap-16">
-          <div className="md:w-1/3">
-            <h2 className="text-3xl font-medium uppercase tracking-widest">Impact</h2>
-          </div>
-          <div className="md:w-2/3">
-            <p className="text-2xl md:text-4xl font-light leading-relaxed">
-              We are committed to building secure environments that protect people, data, and assets across British Columbia.
-            </p>
-          </div>
+      <section className="container">
+        <div className="cardgrid">
+          {[
+            { href: "/about/approach", n: "01", t: "Approach", b: "How we scope, specify and deliver." },
+            { href: "/about/team", n: "02", t: "Team", b: "The roles behind every installation." },
+            { href: "/about/impact", n: "03", t: "Impact", b: "Our six proof points." },
+            { href: "/about/history", n: "04", t: "History", b: "Why PI Locks exists." },
+          ].map((c) => (
+            <Link key={c.href} href={c.href} className="pcard">
+              <div className="pcard__meta">
+                <span>{c.n}</span>
+                <span aria-hidden="true">&rarr;</span>
+              </div>
+              <h3 className="pcard__title">{c.t}</h3>
+              <p className="journey__body">{c.b}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
-      <section id="history" className="py-24 md:py-32 px-8 md:px-12">
-        <div className="max-w-[1920px] mx-auto flex flex-col md:flex-row gap-16">
-          <div className="md:w-1/3">
-            <h2 className="text-3xl font-medium uppercase tracking-widest">History</h2>
-          </div>
-          <div className="md:w-2/3">
-            <p className="text-xl font-light leading-relaxed max-w-2xl text-gray-600">
-              Founded on a commitment to technical excellence and client partnership, Pi Locks has grown into a premier provider of integrated security and infrastructure solutions across Metro Vancouver. [History content placeholder]
-            </p>
-          </div>
+      <section className="container">
+        <nav className="pagenav" aria-label="About sub-pages">
+          <Link href="/about/approach">Approach</Link>
+          <Link href="/about/team">Team</Link>
+          <Link href="/about/impact">Impact</Link>
+          <Link href="/about/history">History</Link>
+        </nav>
+        <div style={{ paddingBottom: 120 }}>
+          <Button href="/contact">Work With Us</Button>
         </div>
       </section>
-
-    </div>
+    </>
   );
 }
